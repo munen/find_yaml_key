@@ -1,0 +1,28 @@
+*find_yaml_key.txt*   Plugin that searches nested keys in YAML
+
+==============================================================================
+INTRODUCTION                                                    *FindYamlKey*
+
+With this plugin nested keys can be easily found in YAML files.
+
+REQUIREMENTS~
+
+VIM needs to be compiled with Ruby support. The plugin will fail gracefully if
+not supported.
+
+USAGE~
+
+:FindYamlKey {pattern}
+
+    Search recursively in the current buffer for yaml keys.
+    For example
+
+    :FindYamlKey foo.bar.baz
+
+    Will place the cursor under the |baz| key in this YAML document:
+
+    maunz:
+      braunz: "mew"
+    foo:
+      bar:
+        baz: "hello world"
