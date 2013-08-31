@@ -1,9 +1,9 @@
-*find_yaml_key.txt*   Plugin that searches nested keys in YAML
+*find_yaml_key.txt*   Plugin to search fo nested keys in a YAML document.
 
 ==============================================================================
 INTRODUCTION                                                    *FindYamlKey*
 
-With this plugin nested keys can be easily found in YAML files.
+With this plugin nested keys can be easily found in a YAML document.
 
 REQUIREMENTS~
 
