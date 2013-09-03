@@ -15,8 +15,12 @@ function! find_yaml_key#FindYamlKey(pat)
 ruby << EOF
   # read vimscript variable to ruby
   pat = VIM::evaluate 'a:pat'
-  # replace '.' with ':\n *', so search over multiple lines can happen
-  t_pat = pat.gsub("\.", ":\\\\\\n\ *")
+  # replace '.' with ':\_.\{-}', so search over multiple lines can happen
+  # regexp explanation:
+  #    * \_. matches everything including multiple newlines
+  #    * \{-} acts like '*', but is non-greedy. Needed to not match inside the
+  #      translation, but only the key.
+  t_pat = pat.gsub("\.", ":\\\\\\_.\\\\\\{-}")
   # construct vim search from top of buffer
   method = "normal! gg/#{t_pat}/e+1\\<cr>"
   # error_message, in case key cannot be found
